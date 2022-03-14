@@ -1,0 +1,93 @@
+				Tema 2 PCLP
+								ILINCA SEBASTIAN - IONUT
+
+    Primul task - Alocarea
+    Am considerat ca cel mai bine e sa fac un vector de matrici, si am zis ca
+daca este prima matrice nu si are rost realloc si dau un simplu malloc,
+in schimb daca primeste mai multe matrici m am gasit ca ar fi foarte
+folositor sa fac un realloc crescand doar cu o unitate, pentru ca
+realloc - ul dublat mi se pare ca va creste foarte mult dupa mai multe
+citiri, de exemplu daca as avea 64 de matrici si vreau sa o aloc pe a
+65 - a asta ar insemna sa fac realloc cu 128, memorie foarte multa, fata de un
+realloc cu 65, sper ca face logica :))).
+    Alogirtmul dupa e simplu, citind m si n, numere care sunt reprezentative
+pentru linii, respectiv coloane. Aloc pentru linii m si pentru
+fiecare linie ma duc si aloc n coloane.
+    De asemenea m - am gandit ca mi - ar fi utili doi vectori care retin
+numarul de linii si coloane si au acelasi index ca si matricea.
+
+    Al doilea task - Afisarea dimensiunilor
+    Datorita faptului ca am doi vectori care retin dimensiunile,
+am putut face doua afisari, am afisat valoarea vectorului de linii
+de pe pozitia m si valoarea vectorului de coloane de pe pozitia m.
+    Trebuie sa recunosc ca aici am fost putin zgarcit pentru ca
+l - am folosit pe m si pentru indice si pentru a scana cate linii
+sa aloc (Task 1).
+
+    Al treilea task - Printarea
+    Am citit indexul si am folosit o functie care face urmatorul lucru:
+foloseste doua variabile l si c. De pe pozitia indexului l primeste
+valoarea vectorului de linii de pe pozitia indexului citit, analog
+pentru coloane. Dupa am folosit doua for - uri si am initializat o variabila
+ce primeste valoarea matricii cu indexul citit, pozitia din for pentru linii
+si pozitia din al doilea for pentru coloana.
+
+    Al patrulea task - Redimensionarea
+    Am citit indexul ca sa stiu in ce matrice ma duc. Apoi am luat doi
+vectori de dimensiunile citite, numerele alea singure din exemplu,
+am alocat memorie pentru atatea numere cate specifica urmand sa le citesc
+pe rand. Apoi m am gandit ca daca mi cere in-place ar fi bine sa redimensionez
+matricea actuala. Am gandit asa : linii nu are rost sa fac ca nu-mi trebuie
+pentru ca nu are cum sa aiba mai multe linii decat matricea actuala. In schimb
+m am folosit de coloane pentru a mi atinge scopul, si anume am marit numarul
+de coloane cu numarul de elemente pentru indicii de coloana, urmand a fi
+asezate acolo numerele care ne trebuiesc, rand cu rand. Apoi am pus pe
+linii incepand cu prima si continuand, dar ca sa nu stric inca matricea am pus
+pe coloanele noi. Dupa care tot ce am facut a fost sa iau niste for - uri sa
+pun elementele noi in matrice si sa realoc matricea. Sincer sa fiu aici am avut
+cel mai mult de lucrat dar a fost fun :)).
+
+    Al cincilea task - Inmultirea
+    Aici a fost ceva clasic, dar funny ca a trebuit sa alocam dupa:)). In fine,
+am folosit conditia ca numarul de coloane a primei matrici sa corespunda
+cu numarul de linii a celei de a doua matrice. Am alocat o noua matrice care
+are numarul de linii egal cu numarul de linii a primei matrici si numarul
+de coloane egal cu a doua matrice. Dupa care trei for - uri: cu i mergand de la
+0 la numarul de linii a primei matrice, cu j de la 0 la numarul de coloane ale
+matricii 2 si cu un k cu numarul de linii de la matricea 2 sau de coloane
+de la matricea 1 si am zis ca matricea noua primeste pentru coordonatele
+i si j suma elementelor matricilor mentionate de coordonate i si k, respectiv k
+si j. La final l am marit pe a ca sa se poata duce indexul pana la matricea nou
+formata.
+
+    Al saselea task - Sortarea
+    A fost ceva easy, fac un vector de suma care are ca index uri aceleasi ca
+matricile, apoi bum un selection sort si apoi am facut swap de matrici unde
+aloc o matrice de m linii si n coloane care corespund uneia dintre matrici,
+mai pe scurt am ales prima, dar se poate face si cu a doua, nu vad nimic
+gresit. Apoi in matricea noua am bagat prima matrice, ma rog am copiat-o.
+Dupa care am dat free la prima matrice si am alocat o din nou cu numarul de
+linii si coloane de la matricea 2 si am copiat in ea matricea 2, analog cu
+matricea 2.
+
+    Al saptelea task - Transpusa unei matrici
+    Compar numarul de linii cu numarul de coloane si vad care e mai mare.
+Daca sunt coloane mai multe realoc liniile sa aiba acelasi numarul, analog
+invers. Apoi m am dus pe diagonala principala, elementele de acolo
+reprezentand niste pivoti si am schimbat linia pivotului cu coloana
+pivotului pe rand, apoi am inversat numarul initial de linii cu numarul
+initial de coloane si am realocat matricea cu numarul actual de linii si
+coloane. De mentionat, am schimbat si valorile din vectorii de dimensiuni.
+    
+    Al optulea task - Stergerea unei matrici si eliberarea ei din memorie
+    Aici am zis ca decat sa o sterg si apoi sa le mut pe toate cel mai bine ar
+fi sa fac swap daca matricea respectiva nu e ultima pana ajunge ultima. Apoi
+ii dau free si la final realoc, micsorand indexul.
+
+	Al optulea task - Terminarea programului
+	M am dus pe fiecare index apoi pe fiecare linie si am eliberat coloanele,
+dupa care m am dus pe indexi si am eliberat liniile iar apoi am eliberat
+toti indexii, am eliberat vectorii care retin dimensiuni. La final am dat
+NULL la toate pentru ca e 99% recomandat.
+
+P.S. - A fost mai greu README-UL:)))
